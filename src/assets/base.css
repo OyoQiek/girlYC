@@ -101,6 +101,15 @@ body{
     height: 0;/*60*/
     overflow: hidden;
     border-top: 1px solid #e0e0e0;
+    transition: all .5s linear;
+}
+.search_bg_c{
+    background: #fff;
+    width: 100%;
+    opacity: 1;
+    height: 60px;/*60*/
+    overflow: hidden;
+    border-top: 1px solid #e0e0e0;
 }
 .search_bg div{
     height: 60px;
@@ -127,7 +136,7 @@ body{
     cursor: pointer;
     transition: all .3s linear;
 }
-.search img:hover{
+.imghover{
     transform: rotate(90deg)
 }
 /* 导航栏小图标 */

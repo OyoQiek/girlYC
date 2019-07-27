@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height:80px">
     <div class="nav_bg">
         <div class="navbar">
             <div class="logo"><img src="images/logo.png" alt="logo"></div>
@@ -30,9 +30,9 @@
                     </ul>
                 </li>
             </ul>
-            <div class="search"><img src="images/search.png" alt="search"></div>
+            <div class="search"><img src="images/search.png" @click="search" :class="{'imghover':pd}" alt="search"></div>
         </div>
-        <div class="search_bg">
+        <div class="search_bg" :class="{'search_bg_c':pd}">
             <div><input type="text" placeholder="搜索..."/></div>
         </div>
     </div>
@@ -41,7 +41,16 @@
 
 <script>
 export default {
-    
+    data(){
+        return{
+            pd:false
+        } 
+    },
+    methods: {
+        search(){
+            this.pd=!this.pd;
+        }
+    },
 }
 </script>
 

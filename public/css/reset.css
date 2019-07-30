@@ -8,3 +8,7 @@ a{
 ul,ol{
     list-style: none;
 }
+.container{
+    width: 1110px;
+    margin: 0 auto;
+}

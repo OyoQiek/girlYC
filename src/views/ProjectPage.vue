@@ -1,58 +1,50 @@
 <template>
     <div style="overflowX:hidden">
         <my-header></my-header>
-        <carousel/>
-        <div class="notice">
+        <div class="page-row">
             <div>
-                <span><img src="images/notice.png" alt=""></span>
-                <span>请在后台公告栏处自定义公告栏内容</span>
+                <div><span>1</span>篇</div>
+                <div>穿搭达人</div>
             </div>
         </div>
         <div class="list">
             <item/>
-            <item/>
-            <item/>
-            <item/>
-            <item/>
         </div>
-        <button class="seemore">加载更多</button>
+        <!-- <button class="seemore">加载更多</button> -->
         <Footer/>
     </div>
 </template>
 <script>
-import Carousel from '@/components/Carousel'
 import Item from '@/components/index/NewsItem'
 export default {
     components:{
-        Carousel,
         Item,
     }
 }
 </script>
 <style scoped>
-    .notice{
-        background: #fff;
-        width: 100%;
-        height: 48px;
+    .page-row{
+        background: #666;
+        height: 260px;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: #fff;
         margin-bottom: 30px;
     }
-    .notice>div{
-        width: 1110px;
-        margin: 0 auto;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        height: 48px;
-        font-size: 14px;
-        color: #3f3f3f;
+    .page-row div div:first-child{
+        margin-top: -10px;
+        margin-bottom: 5px;
     }
-    .notice>div>span:last-child{
-        margin-left: 13px;
-    }
-    .notice>div>span>img{
-        width: 24px;
-        vertical-align: middle;
+    .page-row div div:last-child{
+        width: 94px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #fff;
+        border-radius: 15px;
     }
     .list{
         width: 1110px;

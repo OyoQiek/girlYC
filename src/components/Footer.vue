@@ -21,6 +21,14 @@
                         <li><a href="javascript:;">文案黑客</a></li>
                     </ul>
                 </div>
+                <div class="icon">
+                    <ul>
+                        <li><a href="javascript:;"><img src="images/weixin.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="images/weibo.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="images/qq.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="images/wuxian.png" alt=""></a></li>
+                    </ul>
+                </div>
             </div>
             <div class="copyright">
                 <p class="container">Copyright © 2017-2019	女神衣橱 - 女神衣橱-穿衣搭配导购网 / 版本 V 2.0	赣ICP备14001024号</p>
@@ -56,6 +64,7 @@ export default {
         flex-flow: column nowrap;
         align-items: flex-start;
         margin-top: 22px;
+        position: relative;
     }
     .footer>.container>div{
         display: flex;
@@ -68,5 +77,25 @@ export default {
     .footer>.container>div>ul li a{
         display: block;
         color: #818181;
+    }
+    .icon{
+        position: absolute;
+        right: 0;
+    }
+    .icon ul li a{
+        display: block;
+        background: #666;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        line-height: 45px;
+        text-align: center;
+        margin-left: 10px;
+    }
+    .icon ul li a:hover{
+    }
+    .icon ul li a img{
+        width: 18px;
+        height: 18px;
     }
 </style>

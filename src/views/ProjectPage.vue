@@ -7,18 +7,16 @@
                 <div>穿搭达人</div>
             </div>
         </div>
-        <div class="list">
-            <item/>
-        </div>
+        <List/>
         <!-- <button class="seemore">加载更多</button> -->
         <Footer/>
     </div>
 </template>
 <script>
-import Item from '@/components/index/NewsItem'
+import List from '@/components/list/List'
 export default {
     components:{
-        Item,
+        List,
     }
 }
 </script>
@@ -48,7 +46,7 @@ export default {
     }
     .list{
         width: 1110px;
-        margin: 0 auto;
+        margin: 50px auto;
         display: flex;
         flex-flow: row wrap;
 

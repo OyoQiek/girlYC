@@ -3,10 +3,10 @@
         <div class="title">用一件皮衣，凹无数造型</div>
         <div class="info">
             <span>2017.09.30</span>
-            <span><i>t</i>系列单品</span>
-            <span><i>t</i>0</span><!--点赞-->
-            <span><i>t</i>评论已关闭</span>
-            <span><i>t</i>956</span><!--浏览数-->
+            <span><i><img src="images/changyongicon-.png" class="icon" alt=""></i>系列单品</span>
+            <span><i><img src="images/aixin.png" class="icon" alt=""></i>0</span><!--点赞-->
+            <span><i><img src="images/pinglun.png" class="icon" alt=""></i>评论已关闭</span>
+            <span><i><img src="images/chakan.png" class="icon" alt=""></i>956</span><!--浏览数-->
             <div><a href="javascript:;">皮衣</a></div>
         </div>
         <div>
@@ -38,15 +38,16 @@
             <p class="center">「如果你觉得对你有用，欢迎点击下方按钮对我打赏」</p>
             <div class="detail_bottom">
                 <a href="javascript:;">赞赏</a>
-                <div>
-                    分享到:
-                    <i>1</i>
-                    <i>2</i>
-                    <i>3</i>
-                    <i>4</i>
+                <div class="zanzhu">
+                    <img src="images/zanzhu.jpg" alt="">
                 </div>
-                <div>
-
+                <div class="bottom">
+                    <button><img src="images/aixin.png" class="icon" alt=""><span>0</span></button>
+                    <div>
+                        分享到:
+                        <i><img src="images/weibo.png" class="icon1" alt=""></i>
+                        <i><img src="images/062qqkongjian.png" class="icon1" alt=""></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,9 +84,10 @@ export default {
         display: block;
         margin: 6px 6px 18px 0;
         color: #fff;
-        width: 30px;
         padding: 2px 8px;
+        display: inline-block;
         background: #000;
+        text-align: center;
     }
     .center{
         text-align: center;
@@ -95,11 +97,62 @@ export default {
         color: #ccc;
         text-align: center;
     }
+    .detail_bottom{
+        position: relative;
+    }
     .detail_bottom a:first-child{
         padding: 6px 16px;
         border-radius: 3px;
         color: #fff;
         background: #000;
         cursor: pointer;
+    }
+    .detail_bottom a:first-child:hover + .zanzhu{
+        opacity: 1;
+        height: 172px;
+        top: -200px;
+    }
+    .detail_bottom .zanzhu{
+        position: absolute;
+        padding: 6px;
+        box-shadow: 0 0 6px rgba(14,22,30,0.3);
+        width: 172px;
+        top: -30px;
+        left: 245px;
+        background: #fff;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: all .3s linear;
+    }
+    .detail_bottom .zanzhu img{
+        width: 172px;
+    }
+    .bottom{
+        margin-top: 22px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .bottom button{
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 4px;
+        padding: 6px 18px;
+        box-sizing: border-box;
+        cursor: pointer;
+        outline: 0;
+    }
+    .bottom button span{
+        vertical-align: middle;
+        display: inline-block;
+        padding-left: 3px;
+    }
+    .icon{
+        width: 15px;
+        vertical-align: middle;
+    }
+    .icon1{
+        width: 24px;
+        vertical-align: middle;
     }
 </style>

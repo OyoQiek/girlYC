@@ -2,10 +2,6 @@
     <div>
         <div class="list">
             <item/>
-            <item/>
-            <item/>
-            <item/>
-            <item/>
         </div>
         <button class="seemore">加载更多</button>
     </div>

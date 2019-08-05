@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-import page from '../components/page/23083'
+import page from '../components/page/sp_page.vue'
 import Tag from '../components/Detail-tag'
 export default {
     components:{

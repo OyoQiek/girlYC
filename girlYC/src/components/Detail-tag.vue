@@ -4,18 +4,18 @@
                 <div><span>标签云</span></div>
                 <div>
                     <ul>
-                        <li><a href="javascrip:;">T恤</a></li>
-                        <li><a href="javascrip:;">休闲搭配</a></li>
-                        <li><a href="javascrip:;">卫衣</a></li>
-                        <li><a href="javascrip:;">外套</a></li>
-                        <li><a href="javascrip:;">小性感搭配</a></li>
-                        <li><a href="javascrip:;">少淑搭配</a></li>
-                        <li><a href="javascrip:;">潮人搭配</a></li>
-                        <li><a href="javascrip:;">衬衫</a></li>
-                        <li><a href="javascrip:;">裙子</a></li>
-                        <li><a href="javascrip:;">连衣裙</a></li>
-                        <li><a href="javascrip:;">针织衫</a></li>
-                        <li><a href="javascrip:;">更多</a></li>
+                        <li><router-link :to="`/tagList/T恤`" class="tag">T恤</router-link></li>
+                        <li><router-link :to="`/tagList/休闲搭配`" class="tag">休闲搭配</router-link></li>
+                        <li><router-link :to="`/tagList/卫衣`" class="tag">卫衣</router-link></li>
+                        <li><router-link :to="`/tagList/外套`" class="tag">外套</router-link></li>
+                        <li><router-link :to="`/tagList/小性感搭配`" class="tag">小性感搭配</router-link></li>
+                        <li><router-link :to="`/tagList/少淑搭配`" class="tag">少淑搭配</router-link></li>
+                        <li><router-link :to="`/tagList/潮人搭配`" class="tag">潮人搭配</router-link></li>
+                        <li><router-link :to="`/tagList/衬衫`" class="tag">衬衫</router-link></li>
+                        <li><router-link :to="`/tagList/裙子`" class="tag">裙子</router-link></li>
+                        <li><router-link :to="`/tagList/连衣裙`" class="tag">连衣裙</router-link></li>
+                        <li><router-link :to="`/tagList/针织衫`" class="tag">针织衫</router-link></li>
+                        <li><router-link :to="`/tags`" class="tag">更多</router-link></li>
                     </ul>
                 </div>
             </div>
@@ -38,7 +38,6 @@ export default {
     methods: {
         handleScroll() {
             let st = Math.max(document.body.scrollTop || document.documentElement.scrollTop)  
-            console.log(st)
             if(st>300){
                 this.divstyle.top=st+10+'px'
             }else{
@@ -81,7 +80,7 @@ export default {
         margin-top: 8px;
         padding-right: 38px;
     }
-.tagdiv div:nth-child(2) ul li a{
+.tagdiv div:nth-child(2) ul li .tag{
         display: block;
         padding: 5px 8px;
         margin: 0 6px 6px 0;
@@ -90,7 +89,7 @@ export default {
         border: 1px solid #ddd;
         font-size: 14px;
     }
-.tagdiv div:nth-child(2) ul li a:hover{
+.tagdiv div:nth-child(2) ul li .tag:hover{
         background: #000;
         color: #fff;
         border: 1px solid #fff;

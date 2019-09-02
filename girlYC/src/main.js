@@ -5,6 +5,7 @@ import store from './store'
 import MyHeader from './components/Header'
 import Footer from './components/Footer'
 import axios from 'axios'
+import './font/iconfont.css'
 axios.defaults.baseURL="http://127.0.0.1:3000/"
 axios.defaults.withCredentials=true
 Vue.prototype.axios=axios;

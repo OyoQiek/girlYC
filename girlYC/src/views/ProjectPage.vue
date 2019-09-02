@@ -3,11 +3,11 @@
         <my-header></my-header>
         <div class="page-row">
             <div>
-                <div><span>1</span>篇</div>
+                <div><span v-text="data.length"></span>篇</div>
                 <div v-text="type"></div>
             </div>
         </div>
-        <List/>
+        <List :data="data" :pd="pd"/>
         <!-- <button class="seemore">加载更多</button> -->
         <Footer/>
     </div>
@@ -20,6 +20,52 @@ export default {
     },
     props:{
         type:{default:""}
+    },
+    data() {
+        return {
+            data:[],
+            pno:1,
+            pd:true
+        }
+    },
+    created() {
+        this.update();
+    },
+    methods: {
+        update(){
+            this.axios.get("/sdetail/by",{params:{type:this.type}}).then(res=>{
+                 if(res.data.code>0){
+                    this.data=res.data.data
+                    this.pno++
+                    this.pd=true 
+                }else{
+                    this.data=""
+                    this.pd=false
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
+        },
+        load(){
+            this.axios.get("/sdetail/by",{params:{type:this.type,pno:this.pno}}).then(res=>{
+                 if(res.data.code>0){
+                    this.pno++
+                    var rows=res.data.data
+                    this.pd=true   
+                    this.data=this.data.concat(rows)
+                }else{
+                    this.pd=false
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
+        }
+    },
+    watch: {
+        '$route'(){
+            this.update()
+        }
+
     },
 }
 </script>

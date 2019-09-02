@@ -33,7 +33,7 @@
             <div class="search"><img src="images/search.png" @click="search" :class="{'imghover':pd}" alt="search"></div>
         </div>
         <div class="search_bg" :class="{'search_bg_c':pd}">
-            <div><input type="text" placeholder="搜索..."/></div>
+            <div><input type="text" placeholder="搜索..." v-model="cont" @keyup.13="searchContent"/></div>
         </div>
     </div>
 </div>
@@ -43,12 +43,26 @@
 export default {
     data(){
         return{
-            pd:false
+            pd:false,
+            cont:""
         } 
     },
     methods: {
         search(){
             this.pd=!this.pd;
+        },
+        searchContent(){
+            if(this.cont==""){
+                return
+            }else{
+                this.$router.push(`/tagList/${this.cont}`)
+            }
+            
+        }
+    },
+    watch: {
+        '$route'(){
+            this.cont=this.$route.params.tag
         }
     },
 }

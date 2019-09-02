@@ -1,37 +1,23 @@
 <template>
     <div>
-        <div class="img"><img src="images/detail/21029/01.jpg" alt=""></div>
+        <div class="img"><img :src="pic" alt=""></div>
         <div class="title">街拍达人-一点红</div>
         <div class="info">
-            <span>2017.09.30</span>
-            <span><i><img src="images/changyongicon-.png" class="icon" alt=""></i>通勤名媛</span>
-            <span><i><img src="images/aixin.png" class="icon" alt=""></i>0</span><!--点赞-->
-            <span><i><img src="images/pinglun.png" class="icon" alt=""></i>评论已关闭</span>
-            <span><i><img src="images/chakan.png" class="icon" alt=""></i>956</span><!--浏览数-->
-            <div><a href="javascript:;">少淑搭配</a></div>
+            <span v-text="data.create_time"></span>
+            <span><i class="iconfont icon-icon-test"></i>{{data.td_type}}</span>
+            <span><i class="iconfont icon-aixin1"></i>{{data.collect_num}}</span><!--点赞-->
+            <span><i class="iconfont icon-pinglun"></i>评论已关闭</span>
+            <span><i class="iconfont icon-chakan"></i>{{data.view_num}}</span><!--浏览数-->
+            <div><router-link :to="`/tagList/${data.tag}`" v-text="data.tag"></router-link></div>
         </div>
         <div>
-            <p>白色翻领衬衣+黑色半身短裙+黑色鱼嘴高跟拖鞋+红色酒神包</p>
+            <p v-text="data.first_content"></p>
             <ul class="wptao">
-                <li>
-                    <img src="images/detail/21029/02.jpg" alt="asd">
+                <li v-for="(item,i) of result" :key="i">
+                    <img :src="item.pic" alt="">
                     <div>
-                        <p><em>[天猫]</em> YEP夏季韩版百搭小清新白色睡衣风宽松V领短衬衣七分袖雪纺衬衫女</p>
-                        <button>￥109.00</button>
-                    </div>
-                </li>
-                <li>
-                    <img src="images/detail/21029/03.jpg" alt="asd">
-                    <div>
-                        <p><em>[天猫]</em> 韩都衣舍2016韩版女装夏新百搭短裙非牛仔包臀显瘦半身裙GQ5500耒</p>
-                        <button>￥109.00</button>
-                    </div>
-                </li>
-                <li>
-                    <img src="images/detail/21029/04.jpg" alt="asd">
-                    <div>
-                        <p><em>[天猫]</em> 鱼嘴凉拖鞋女2016夏季新款高跟凉鞋子性感真皮一字拖时尚粗跟拖鞋</p>
-                        <button>￥109.00</button>
+                        <p><em>[天猫]</em> {{item.title}}</p>
+                        <button>￥{{item.price}}</button>
                     </div>
                 </li>
             </ul>
@@ -55,7 +41,11 @@
 </template>
 <script>
 export default {
-    
+    props:{
+        data:{default:""},
+        result:{default:""},
+        pic:{default:""}
+    },
 }
 </script>
 <style scoped>
@@ -63,7 +53,39 @@ export default {
         max-width: 480px;
         margin: 0 auto;
     }
-
+    .wptao li{
+        height: 132px;
+        box-shadow: 1px 1px 8px #eee;
+        border: 1px solid #eee;
+        margin: 10px 0;
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .wptao li div{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-end
+    }
+    .wptao li div p{
+        font-size: 16px;
+        color: #333;
+        font-weight: 700;
+    }
+    .wptao li div p em{
+        font-size: 13px;
+    }
+    .wptao li div button{
+        padding: 4px 10px;
+        background: #f04848;
+        border: 0;
+        color: #fff;
+        width: 75px;
+        outline: 0;
+        cursor: pointer;
+    }
 
     p{
         margin-bottom: 20px;

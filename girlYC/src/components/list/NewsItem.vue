@@ -2,20 +2,20 @@
     <div>
         <div class="item">
             <div class="itemmb">
-                <a href="javascript:;" class="itempic"><img src="images/banner1.jpg" alt=""><div class="mask"></div></a>
+                <router-link :to="`${item._href}/${id}`" class="itempic"><img :src="pics[0]" alt=""><div class="mask"></div></router-link>
                 <div class="title">
-                    <a href="javascript:;">秋冬必备打底衫 我只信赖针织</a>
+                    <a v-text="item.title"></a>
                     <div>
-                        <span>系列单品</span>
-                        <span>2017.10.15</span>
+                        <span v-text="item.sd_type"></span>
+                        <span v-text="item.create_time"></span>
                     </div>
                 </div>
                 <div class="info">
                     <div>nvshen</div>
                     <ul>
-                        <li><span>t</span>1</li>
-                        <li><span>t</span>0</li>
-                        <li><span>t</span>111</li>
+                        <li><span class="iconfont icon-aixin1"></span>{{item.collect_num}}</li>
+                        <li><span class="iconfont icon-pinglun"></span>0</li>
+                        <li><span class="iconfont icon-chakan"></span>{{item.view_num}}</li>
                     </ul>
                 </div>
             </div>
@@ -25,7 +25,29 @@
 
 <script>
 export default {
-    
+    props:{
+        item:{default:""}
+    },
+    data() {
+        return {
+            pics:[],
+            id:0
+        }
+    },
+    methods: {
+        load(){
+            this.pics=this.item.pics.split(",")
+            this.id=this.item.sd_id||this.item.td_id
+        },
+    },
+    created() {
+        this.load()
+    },
+    watch: {
+        '$route'(){
+            this.load()
+        }
+    },
 }
 </script>
 

@@ -1,17 +1,28 @@
 <template>
     <div>
         <div class="list">
-            <item/>
+            <div v-for="(item,i) of data" :key="i">
+                <item :item="item"/>
+            </div>
         </div>
-        <button class="seemore">加载更多</button>
+        <button class="seemore" v-if="pd==true" @click="loadMore">加载更多</button>
     </div>
 </template>
 <script>
 import Item from '@/components/list/NewsItem'
 export default {
+    props:{
+        data:{default:""},
+        pd:{default:""}
+    },
     components:{
         Item,
-    }
+    },
+    methods: {
+        loadMore(){
+            this.$parent.load()
+        }
+    },
 }
 </script>
 <style scoped>

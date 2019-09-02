@@ -1,20 +1,23 @@
 <template>
     <div>
-        <div class="title">用一件皮衣，凹无数造型</div>
+        <div class="title" v-text="data.title"></div>
         <div class="info">
-            <span>2017.09.30</span>
-            <span><i><img src="images/changyongicon-.png" class="icon" alt=""></i>系列单品</span>
-            <span><i><img src="images/aixin.png" class="icon" alt=""></i>0</span><!--点赞-->
-            <span><i><img src="images/pinglun.png" class="icon" alt=""></i>评论已关闭</span>
-            <span><i><img src="images/chakan.png" class="icon" alt=""></i>956</span><!--浏览数-->
-            <div><a href="javascript:;">皮衣</a></div>
+            <span v-text="data.create_time"></span>
+            <span><i class="iconfont icon-icon-test"></i>{{data.sd_type}}</span>
+            <span><i class="iconfont icon-aixin1"></i>{{data.collect_num}}</span><!--点赞-->
+            <span><i class="iconfont icon-pinglun"></i>评论已关闭</span>
+            <span><i class="iconfont icon-chakan"></i>{{data.view_num}}</span><!--浏览数-->
+            <div><router-link :to="`/tagList/${data.tag}`" v-text="data.tag"></router-link></div>
         </div>
         <div>
-            <p>众所周知，皮衣是凹造型的一把好手，尤其对个性分明的女人来说，一件抵得上无数件，当然，如此这般省时省力的待遇也不是谁都消受得了，驾驭能力弱者就得慎重考虑，在非黑即白的搭配学里，落落大方和贻笑大方之间，差得可不止是十万八千里的距离。</p>
-            <p><img src="images/detail/23083/01.jpg" alt=""></p>
-            <p class="center">连帽宽松棒球服外套</p>
-            <p>01 在所有皮衣里，棒球服式的皮衣算是比较随和的类型了，喜欢休闲风的女人几乎都可以驾驭。如果非要找出点儿挑剔之处的话，就是年龄方面的限制了，年纪大的没有年纪小的穿着顺眼，这是事实。</p>
-            <p><img src="images/detail/23083/02.jpg" alt=""></p>
+            <p v-text="data.first_content"></p>
+            <div v-for="(item,i) of result" :key="i">
+                <p><img :src="item.pic" alt=""></p>
+                <p class="center" v-text="item.title"></p>
+                <p v-text="item.cont"></p>
+            </div>
+            
+            <!-- <p><img src="images/detail/23083/02.jpg" alt=""></p>
             <p class="center">短款连帽PU皮机车外套</p>
             <p>02 没办法，属性使然，至于什么属性，可意会不可言传，反正，追求街头风酷帅范儿的女人都懂得。无独有偶，连帽机车外套的受众也是同样的群体，出场就带着一股狂放的气息，教人欲罢不能。</p>
             <p><img src="images/detail/23083/03.jpg" alt=""></p>
@@ -31,7 +34,7 @@
             <p>06 换言之，在不违和的前提下，不拒绝任何有可能散发个人魅力的机会才是女人应该解决的首要问题，哪怕普普通通，也得有鲜明的个性，而且，谁说个性必须酷炫，某种程度上，温和也是个性的一种。</p>
             <p><img src="images/detail/23083/07.jpg" alt=""></p>
             <p class="center">原宿风连帽拉链皮衣</p>
-            <p>07 就以往的经验来看，只要选择的不是大众款就行，撞衫倒是其次，拉低品味就得不偿失了。传承着作为一件外套的基本功能，皮衣适合的场合也非常广泛，出街、约会、上班、旅游，怎么穿都有理，尤其是造型，任性凹，出错算我输。</p>
+            <p>07 就以往的经验来看，只要选择的不是大众款就行，撞衫倒是其次，拉低品味就得不偿失了。传承着作为一件外套的基本功能，皮衣适合的场合也非常广泛，出街、约会、上班、旅游，怎么穿都有理，尤其是造型，任性凹，出错算我输。</p> -->
             <p class="article-copyright">
                 转载原创文章请注明，转载自: 女神衣橱 - 用一件皮衣，凹无数造型 <br>(http://www.nvshenyichu.com/23083.html)
             </p>
@@ -55,7 +58,10 @@
 </template>
 <script>
 export default {
-    
+    props:{
+        data:{default:""},
+        result:{default:""}
+    }
 }
 </script>
 <style scoped>

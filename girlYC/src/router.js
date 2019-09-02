@@ -11,7 +11,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {path:"/",component:Index},
-    {path:"/ProjectPage",component:ProjectPage},
+    {path:"/ProjectPage/:type",component:ProjectPage,props:true},
     {path:"/detail",component:Detail},
     {path:"/tagList",component:TagList},
     {path:"/tags",component:Tags},

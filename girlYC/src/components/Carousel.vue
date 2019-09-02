@@ -3,7 +3,7 @@
         <div id="carousel" :style="{width:w+'px'}" @mouseenter="stop" @mouseleave="start">
             <ul class="carousel" :class="ulClass" :style="ulStyle">
                 <li>
-                    <a href="javascript;" :class="{active:-1==i}">
+                    <a :class="{active:-1==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.15</span>
@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript;" :class="{active:0==i}">
+                    <a :class="{active:0==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.14</span>
@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript;" :class="{active:1==i}">
+                    <a :class="{active:1==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.14</span>
@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript;" :class="{active:2==i}">
+                    <a :class="{active:2==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.15</span>
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript;" :class="{active:3==i}">
+                    <a :class="{active:3==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.14</span>
@@ -54,7 +54,7 @@
 
                 </li>
                 <li>
-                    <a href="javascript;" :class="{active:4==i}">
+                    <a :class="{active:4==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.14</span>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript;" :class="{active:5==i}">
+                    <a :class="{active:5==i}">
                         <div class="notice">
                             <span>系列单品</span>
                             <span>2017.10.15</span>
@@ -75,8 +75,8 @@
                 </li>
             </ul>
             <div class="carousel_control">
-                <a href="javascript:;" @click="move(-1)"><img src="images/carousel-arrow-left.png"/></a>
-                <a href="javascript:;" @click="move(1)"><img src="images/carousel-arrow-right.png"/></a>
+                <a @click="move(-1)"><img src="images/carousel-arrow-left.png"/></a>
+                <a @click="move(1)"><img src="images/carousel-arrow-right.png"/></a>
             </div>
             <ul class="carousel_indicators">
                 <li @click="moveTo(1)" :class="{active:1==i}"></li>

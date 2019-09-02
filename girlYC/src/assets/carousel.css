@@ -106,9 +106,11 @@
 }
 #carousel>.carousel_control>a:first-child{
     margin-left: 20px;
+    cursor: pointer;
 }
 #carousel>.carousel_control>a:last-child{
     margin-right: 20px;
+    cursor: pointer;
 }
 /* 指示符 */
 #carousel>.carousel_indicators{

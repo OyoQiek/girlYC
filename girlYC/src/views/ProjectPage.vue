@@ -4,7 +4,7 @@
         <div class="page-row">
             <div>
                 <div><span>1</span>篇</div>
-                <div>穿搭达人</div>
+                <div v-text="type"></div>
             </div>
         </div>
         <List/>
@@ -17,7 +17,10 @@ import List from '@/components/list/List'
 export default {
     components:{
         List,
-    }
+    },
+    props:{
+        type:{default:""}
+    },
 }
 </script>
 <style scoped>

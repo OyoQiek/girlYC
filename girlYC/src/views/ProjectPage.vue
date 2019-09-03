@@ -33,11 +33,14 @@ export default {
     },
     methods: {
         update(){
+            this.data=""
+            this.pno=1
             this.axios.get("/sdetail/by",{params:{type:this.type}}).then(res=>{
                  if(res.data.code>0){
                     this.data=res.data.data
                     this.pno++
                     this.pd=true 
+                    console.log(this.data)
                 }else{
                     this.data=""
                     this.pd=false

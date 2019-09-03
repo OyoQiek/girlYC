@@ -35,6 +35,8 @@ export default {
     },
     methods: {
         update(){
+            this.data=""
+            this.pno=1
             this.axios.get(
                 "/sdetail/search",{
                     params:{

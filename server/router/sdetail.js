@@ -102,13 +102,13 @@ router.get("/search",(req,res)=>{
     var offset=(p-1)*ps;
     ps=parseInt(ps);
     var data=[];
-    var sql=`select * from s_detail where sd_type=? or title like '%${tag}%' limit ?,?`
-    pool.query(sql,[tag,offset,ps],(err,result)=>{
+    var sql=`select * from s_detail where sd_type like '%${tag}%' or title like '%${tag}%' limit ?,?`
+    pool.query(sql,[offset,ps],(err,result)=>{
         if(err) throw err;
         if(result.length>0 && result.length<9){
             data=data.concat(result);
-            sql=`select * from t_detail where td_type=? or title like '%${tag}%' limit ?,?`
-            pool.query(sql,[tag,offset,ps-result.length],(err,result)=>{
+            sql=`select * from t_detail where td_type like '%${tag}%' or title like '%${tag}%' limit ?,?`
+            pool.query(sql,[offset,ps-result.length],(err,result)=>{
                 if(err) throw err;
                 if(result.length){
                     data=data.concat(result)
@@ -122,8 +122,8 @@ router.get("/search",(req,res)=>{
                 data=result;
                 res.send({code:1,msg:"查询成功",data:data})
             }else if(result.length<=0){
-                sql=`select * from t_detail where td_type=? or title like '%${tag}%' limit ?,?`
-                pool.query(sql,[tag,offset,ps],(err,result)=>{
+                sql=`select * from t_detail where td_type like '%${tag}%' or title like '%${tag}%' limit ?,?`
+                pool.query(sql,[offset,ps],(err,result)=>{
                     if(err) throw err;
                     if(result.length){
                         data=result
